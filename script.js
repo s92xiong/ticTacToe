@@ -38,8 +38,8 @@ const gameplay = (() => {
     const bgModal = document.querySelector(".bg-modal");
     const resultMessage = document.querySelector("#result");
 
-    const Player1 = Player("Player 1", "✕");
-    const Player2 = Player("Player 2", "○");
+    const Player1 = Player("PLAYER 1", "✕");
+    const Player2 = Player("PLAYER 2", "○");
 
     const gameFunctionality = () => {
         for (let i = 0; i < gridItem.length; i++) {
@@ -48,7 +48,7 @@ const gameplay = (() => {
                     if (symbol === "✕") {
                         gridItem[i].textContent = symbol;
                         gridItem[i].style.color = "#545454";
-                        gridItem[i].style.fontSize = "50px";
+                        gridItem[i].style.fontSize = "55px";
                         gameBoard.gameArray[i] = symbol;
                         findWinSequence();
                         symbol = "○";
@@ -57,7 +57,7 @@ const gameplay = (() => {
                     } else {
                         gridItem[i].textContent = symbol;
                         gridItem[i].style.color = "#f2ebd4";
-                        gridItem[i].style.fontSize = "90px";
+                        gridItem[i].style.fontSize = "100px";
                         gameBoard.gameArray[i] = symbol;
                         findWinSequence();
                         symbol = "✕";
@@ -141,3 +141,9 @@ const gameplay = (() => {
     }
 })();
 gameplay.gameplayOutput();
+
+// (1) Fix positioning of `cross` and `circle` div positions, make them absolute?
+// (2) Organize code, try and place code in functional areas, HTML and gameplay sections
+// (3) Fix result window for winner, make it look more clean
+
+// (~) Don't forget to remove console.log after the project is done!

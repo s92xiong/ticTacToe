@@ -26,16 +26,31 @@ h1 {
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
-    column-gap: 3px;
-    row-gap: 3px;
+    column-gap: 4px;
+    row-gap: 4px;
     background-color: #26a192;
 }
 
 .Player {
-    padding: 20px 40px 20px 40px;
+    width: auto;
+    padding: 30px 80px 30px 80px;
     margin: 25px;
     border-radius: 0.7em;
+}
+
+#cross {
+    margin: 5px;
+    margin-top: 34px;
+    text-align: center;
+    font-size: 60px;
     color: #545454;
+}
+
+#circle {
+    padding: 0;
+    text-align: center;
+    font-size: 108px;
+    color: #f2ebd4;
 }
 
 .grid-item {
@@ -84,7 +99,7 @@ h1 {
 .modal-content {
     width: 300px;
     height: 90px;
-    background-color: rgba(210, 210, 210, 0.8);
+    background-color: rgba(210, 210, 210, 0.699);
     font-size: 20px;
     font-weight: 900;
     display: flex;
