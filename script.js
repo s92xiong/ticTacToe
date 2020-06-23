@@ -48,19 +48,19 @@ const gameplay = (() => {
     const changePlayerName = () => {
         changeName.addEventListener('click', (e) => {
             do {
-                Player1.name = prompt("Player 1 Name: (Must be less than 10 characters) ", "PLAYER 1");
+                Player1.name = prompt("Player 1 Name: (Must be less than 12 characters) ", "PLAYER 1");
                 if (Player1.name === null) {
                     Player1.name = "PLAYER 1";
                 }
-            } while (Player1.name.length >= 10);
+            } while (Player1.name.length >= 12);
             playerOneHTML.innerHTML = Player1.name;
             
             do {
-                Player2.name = prompt("Player 2 Name: (Must be less than 10 characters) ", "PLAYER 2");
+                Player2.name = prompt("Player 2 Name: (Must be less than 12 characters) ", "PLAYER 2");
                 if (Player2.name === null) {
                     Player2.name = "PLAYER 2";
                 }
-            } while (Player2.name.length >= 10);
+            } while (Player2.name.length >= 12);
             playerTwoHTML.innerHTML = Player2.name;
         });
     };

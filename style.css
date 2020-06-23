@@ -21,7 +21,7 @@ h1 {
 }
 
 .ghost-container {
-    width: 306px;
+    width: 400px;
     height: 306px;
 }
 
@@ -43,7 +43,6 @@ h1 {
     text-align: center;
     width: auto;
     padding: 30px 80px 30px 80px;
-    margin: 25px;
     border-radius: 0.7em;
 }
 
