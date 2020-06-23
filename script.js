@@ -34,7 +34,7 @@ const gameplay = (() => {
     let winner = false;
     
     const gridItem = document.querySelectorAll(".grid-item");
-    const resetButton = document.querySelector(".button");
+    const resetButton = document.querySelector("#resetButton");
     const bgModal = document.querySelector(".bg-modal");
     const resultMessage = document.querySelector("#result");
 
@@ -68,6 +68,12 @@ const gameplay = (() => {
             });
         }
     };
+    // TRY TO FIX THIS FUNCTION AND THE ABOVE CODE @ LINES 49-52
+    // const rendXSymbol = (x) => {
+    //     x.textContent = symbol;
+    //     x.style.color = "#545454";
+    //     x.style.fontSize = "55px";
+    // };
 
     const findWinSequence = () => {
         // Find winning sequence
@@ -108,10 +114,10 @@ const gameplay = (() => {
         winningSymbol = symbol;
         if (winningSymbol === Player1.letter) {
             bgModal.style.display = 'flex';
-            resultMessage.textContent = `${Player1.name} wins!`;
+            resultMessage.textContent = `Winner: ${Player1.name}`;
         } else if (winningSymbol === Player2.letter) {
             bgModal.style.display = 'flex';
-            resultMessage.textContent = `${Player2.name} wins!`;
+            resultMessage.textContent = `${Player2.name}`;
         }
 
         bgModal.addEventListener('click', (e) => {
@@ -147,3 +153,7 @@ gameplay.gameplayOutput();
 // (3) Fix result window for winner, make it look more clean
 
 // (~) Don't forget to remove console.log after the project is done!
+
+// To do immediately
+// Build a 2nd button that takes you back
+// Build a the html to input player 1 and 2 information

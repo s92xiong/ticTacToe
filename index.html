@@ -11,23 +11,25 @@
         <h1>TIC TAC TOE</h1>
         <div id="container">
             <div class="Player" id="Player1">
-                <div>PLAYER</div>
+                <div class="player-style">Joseph Joestar</div>
                 <div id="cross">✕</div>
             </div>
             <div id="game-container"></div>
             <div class="Player" id="Player2">
-                <div>PLAYER</div>
+                <div class="player-style">Joseph Joestar</div>
                 <div id="circle">○</div>
             </div>
         </div>
-        <div class="buttonDiv"><button class="button">RESTART</button></div>
+        <div class="buttonDiv">
+            <button class="button" id="resetButton">RESTART</button>
+            <button class="button">BACK</button>
+        </div>
 
-        <div class="bg-modal">
+        <div class="bg-modal fade-in">
             <div class="modal-content">
                 <p id="result">Player 1 wins!</p>
             </div>
         </div>
-
         <script src="script.js"></script>
     </body>
 </html>
