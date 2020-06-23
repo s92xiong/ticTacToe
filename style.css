@@ -6,21 +6,27 @@ body {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 2.7rem;
     text-align: center;
-    margin: 60px 0 0 15px;
+    margin: 45px 0 0 15px;
     padding: 0;
     color: #545454;
 }
 
-#container {
+.container {
     margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
-#game-container {
+.ghost-container {
+    width: 306px;
+    height: 306px;
+}
+
+.game-container {
+    position: absolute;
     width: 306px;
     height: 306px;
     display: grid;
@@ -31,29 +37,25 @@ h1 {
     background-color: #26a192;
 }
 
-.Player {
+.player-name {
+    font-size: 18px;
+    color: #545454;
+    text-align: center;
     width: auto;
     padding: 30px 80px 30px 80px;
     margin: 25px;
     border-radius: 0.7em;
 }
 
-.player-style {
-    font-size: 18px;
-    color: #545454;
-}
-
-#cross {
-    margin-top: 34px;
-    text-align: center;
+.cross-symbol {
+    margin-top: 30px;
     font-size: 50px;
     color: #545454;
 }
 
-#circle {
+.circle-symbol {
     padding: 0;
-    text-align: center;
-    font-size: 90px;
+    font-size: 91px;
     color: #f2ebd4;
 }
 
@@ -65,16 +67,16 @@ h1 {
     cursor: pointer;
 }
 
-.buttonDiv {
-    text-align: center;
-    margin: 40px;
+.button-div {
+    display: flex;
+    justify-content: center;
 }
 
-.button {
+button {
     width: 100px;
     height: 40px;
-    margin: 23px;
-    font-size: 15px;
+    margin: 40px 15px 0px 15px;
+    font-size: 0.9em;
     font-family: 'Montserrat', sans-serif;
     border: none;
     border-radius: 0.7em;
@@ -83,8 +85,17 @@ h1 {
     background-color: #f2ebd4;
 }
 
-.button:hover {
+.restart-button:hover {
     background-color: #f2ebd4b7;
+}
+
+.player-button {
+    background-color: #545454;
+    color: #f2ebd4;
+}
+
+.player-button:hover {
+    background-color: #545454d0;
 }
 
 .bg-modal {
@@ -101,7 +112,7 @@ h1 {
 }
 
 #result {
-    font-size: 30px;
+    font-size: 2rem;
     color: rgb(200, 200, 200);
 }
 

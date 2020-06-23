@@ -8,14 +8,14 @@ const Player = (name, letter) => {
 };
 
 const render = (() => {
-    const container = document.querySelector("#game-container");
+    const container = document.querySelector("#gameContainer");
 
     // Create grid of squares
     const createSquares = () => {
         for (let i = 0, totalSquares = 9; i < totalSquares; i++) {
             let square = document.createElement("div");
             container.appendChild(square);
-            square.className = `grid-item grid-item-${i}`;
+            square.className = `grid-item`;
         }
     };
 
@@ -34,30 +34,34 @@ const gameplay = (() => {
     let winner = false;
     
     const gridItem = document.querySelectorAll(".grid-item");
-    const resetButton = document.querySelector("#resetButton");
+    const restartButton = document.querySelector("#restartButton");
     const bgModal = document.querySelector(".bg-modal");
     const resultMessage = document.querySelector("#result");
 
     const changeName = document.querySelector("#changeName");
-    const player1name = document.querySelector("#player1-name");
-    const player2name = document.querySelector("#player2-name");
+    const playerOneHTML = document.querySelector("#playerOneHTML");
+    const playerTwoHTML = document.querySelector("#playerTwoHTML");
 
     const Player1 = Player("PLAYER 1", "✕");
     const Player2 = Player("PLAYER 2", "○");
 
     const changePlayerName = () => {
         changeName.addEventListener('click', (e) => {
-            Player1.name = prompt("Player 1 Name: ", "PLAYER 1");
-            if (Player1.name === null) {
-                Player1.name = "PLAYER 1";
-            }
-            player1name.innerHTML = Player1.name;
+            do {
+                Player1.name = prompt("Player 1 Name: (Must be less than 10 characters) ", "PLAYER 1");
+                if (Player1.name === null) {
+                    Player1.name = "PLAYER 1";
+                }
+            } while (Player1.name.length >= 10);
+            playerOneHTML.innerHTML = Player1.name;
             
-            Player2.name = prompt("Player 2 Name: ", "PLAYER 2");
-            if (Player2.name === null) {
-                Player2.name = "PLAYER 2";
-            }
-            player2name.innerHTML = Player2.name;
+            do {
+                Player2.name = prompt("Player 2 Name: (Must be less than 10 characters) ", "PLAYER 2");
+                if (Player2.name === null) {
+                    Player2.name = "PLAYER 2";
+                }
+            } while (Player2.name.length >= 10);
+            playerTwoHTML.innerHTML = Player2.name;
         });
     };
 
@@ -139,12 +143,13 @@ const gameplay = (() => {
         });
     }
 
-    const clearGame = () => {
-        resetButton.addEventListener("click", (e) => {
+    const clearBoard = () => {
+        restartButton.addEventListener("click", (e) => {
             gridItem.forEach((element) => {
                 element.textContent = "";
             });
             gameBoard.gameArray = ["", "", "", "", "", "", "", "", ""];
+            console.log(gameBoard.gameArray);
             symbol = "✕";
             winningSymbol = "";
             turn = 1;
@@ -154,21 +159,15 @@ const gameplay = (() => {
 
     return { 
         gameplayOutput: () => {
-            gridItem;
-            gameFunctionality();
-            clearGame();
             changePlayerName();
+            gridItem; // May not be needed
+            gameFunctionality();
+            clearBoard();
         } 
     }
 })();
 gameplay.gameplayOutput();
 
-// (1) Fix positioning of `cross` and `circle` div positions, make them absolute?
 // (2) Organize code, try and place code in functional areas, HTML and gameplay sections
-// (3) Fix result window for winner, make it look more clean
-
+// (3) Look into adding a Computer AI, if it is too complex, don't worry about it!
 // (~) Don't forget to remove console.log after the project is done!
-
-// To do immediately
-// Build a 2nd button that takes you back
-// Build a the html to input player 1 and 2 information
