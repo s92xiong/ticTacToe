@@ -38,27 +38,47 @@ const gameplay = (() => {
     const bgModal = document.querySelector(".bg-modal");
     const resultMessage = document.querySelector("#result");
 
+    const changeName = document.querySelector("#changeName");
+    const player1name = document.querySelector("#player1-name");
+    const player2name = document.querySelector("#player2-name");
+
     const Player1 = Player("PLAYER 1", "✕");
     const Player2 = Player("PLAYER 2", "○");
+
+    const changePlayerName = () => {
+        changeName.addEventListener('click', (e) => {
+            Player1.name = prompt("Player 1 Name: ", "PLAYER 1");
+            if (Player1.name === null) {
+                Player1.name = "PLAYER 1";
+            }
+            player1name.innerHTML = Player1.name;
+            
+            Player2.name = prompt("Player 2 Name: ", "PLAYER 2");
+            if (Player2.name === null) {
+                Player2.name = "PLAYER 2";
+            }
+            player2name.innerHTML = Player2.name;
+        });
+    };
 
     const gameFunctionality = () => {
         for (let i = 0; i < gridItem.length; i++) {
             gridItem[i].addEventListener("click", () => {
                 if (gridItem[i].textContent === "" && winner === false) {
                     if (symbol === "✕") {
+                        gameBoard.gameArray[i] = symbol;
                         gridItem[i].textContent = symbol;
                         gridItem[i].style.color = "#545454";
                         gridItem[i].style.fontSize = "55px";
-                        gameBoard.gameArray[i] = symbol;
                         findWinSequence();
                         symbol = "○";
                         console.log(gameBoard.gameArray);
                         turn++;
                     } else {
+                        gameBoard.gameArray[i] = symbol;
                         gridItem[i].textContent = symbol;
                         gridItem[i].style.color = "#f2ebd4";
                         gridItem[i].style.fontSize = "100px";
-                        gameBoard.gameArray[i] = symbol;
                         findWinSequence();
                         symbol = "✕";
                         console.log(gameBoard.gameArray);
@@ -68,12 +88,6 @@ const gameplay = (() => {
             });
         }
     };
-    // TRY TO FIX THIS FUNCTION AND THE ABOVE CODE @ LINES 49-52
-    // const rendXSymbol = (x) => {
-    //     x.textContent = symbol;
-    //     x.style.color = "#545454";
-    //     x.style.fontSize = "55px";
-    // };
 
     const findWinSequence = () => {
         // Find winning sequence
@@ -117,7 +131,7 @@ const gameplay = (() => {
             resultMessage.textContent = `Winner: ${Player1.name}`;
         } else if (winningSymbol === Player2.letter) {
             bgModal.style.display = 'flex';
-            resultMessage.textContent = `${Player2.name}`;
+            resultMessage.textContent = `Winner: ${Player2.name}`;
         }
 
         bgModal.addEventListener('click', (e) => {
@@ -143,6 +157,7 @@ const gameplay = (() => {
             gridItem;
             gameFunctionality();
             clearGame();
+            changePlayerName();
         } 
     }
 })();
